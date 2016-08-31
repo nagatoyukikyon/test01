@@ -16,6 +16,17 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
+            $table->char('user_name',20);
+            $table->timestamps();
+            
+        });
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('email');
+            $table->char('password');
+            $table->char('name');
+            $table->rememberToken();
+            $table->timestamps();
             
         });
     }
